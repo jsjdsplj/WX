@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper//EN" "http://mybatis.org/dtd/mybatis-3-ma">
+
+<mapper namespacr="com.jiechuang.wx.dataobject.mapper.ProductCategoryMapper">
+
+    <resultMap id ="BaseResultMap" type="com.jiechuang.wx.dataobject.ProductCategory">
+        <id column="category_id" property="categoryId" jdbcType="INYEGER"/>
+        <id column="category_name" property="categoryName" jdbcType="VARCHAR"/>
+        <id column="category_type" property="categoryType" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectByCategoryType" resultMap="baseResultMap" parameterType="java.lang.Integer">
+        select category_id,category-name,category_type
+        from product-category
+        where category_type=#{category_type,jdbcType=INTEGER}
+    </select>
+
+</mapper>

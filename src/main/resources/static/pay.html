@@ -1,0 +1,27 @@
+<script>
+    function onBridgeReady() {
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',{
+                "appId":"wx2421b1c4370ec43b",//公众号名称，由商户传入
+                "timeStamp":"1395712654",//时间戳，自1970年以来的秒数
+                "nonceStr":"e61463f8efa9409052565cccs4dbb4"//随机字符串
+                "package":"prepay_id=u80204515888",
+                "signType":"MD5",//微信签名方式
+                "paySign":"70D223235DSd5ad532"//微信签名
+            },
+            function (res) {
+                if(res.err_msg=="get_brand_wcpay_request:ok"){}
+            }
+        );
+    }
+    if(typeof WeixinJSBridge=="undefined"){
+        if(document.addEventListener){
+            document.addEventListener('WeixinJSBridgeReady',onBridgeReady);
+        }else if(document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady',onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady',onBridgeReady);
+        }
+    }else {
+        onBridgeReady();
+    }
+</script>
